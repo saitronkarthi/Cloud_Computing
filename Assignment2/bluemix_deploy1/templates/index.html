@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-disposition" content="attachment" />
+<meta http-equiv="Content-Type" content="application/force-download" />
+
+<title>CSE6331-Cloud Coomputing Assignment2</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>  
+</head>
+<body>
+
+<script type="text/javascript">
+function downld1(id)
+{
+document.location ="/download";
+}
+function downld(id)
+{
+var var2=$.ajax({
+type: "POST",
+url: "/download",
+async:false,
+data: { dlid: id}
+}); 
+var path=var2.responseText;
+
+$("#jsstatus").text(var2.responseText);
+
+}
+
+function del(id)
+{
+var var1=$.ajax({
+type: "POST",
+url: "/ajax",
+async:false,
+data: { mydata: id}
+
+}); 
+location.reload(true)
+}
+
+function test()
+{
+var var1=$.ajax({
+type: "POST",
+url: "/test",
+async:false,
+data: { param: 1}
+}); 
+
+ $("#jsstatus").text(var1.responseText);
+ window.open("http://localhost/"+var1.responseText);
+
+}
+</script>
+
+<form method="post" enctype="multipart/form-data">
+
+<h2>CSE6331-Cloud Computing Assignment2</h2>
+1.Choose a file to upload:<input type="file" class="upload"  name="file"/>
+<input type="submit" value="Upload the file" id="test" >
+<br>
+<br>
+ <label for="status" style="margin-left:100px;color:red;">{{status}}</label>
+ <hr>
+ <table border="1">
+ <th>File list</th>
+ {%set count=-1 %}
+{% for file in filelist %}
+{%set count=count+1%}
+{%set uid= (fid[count])%}
+{%set uids= uid|string()%}
+<tr><td>{{ file }}</td><td><input type="button" value="Download" name="/{{ file }}" onclick=downld("{{uids}}")></td>
+<td><input type="button" value="Delete" onclick=del("{{uids}}") name="/{{ file }}"></td>
+<td style="display:none;">{{fid[count]}}</td>  
+</tr> 
+</b>
+    {% endfor %}
+</table>
+   
+   
+</form>
+
+<form role="form" method = "post" action="/test" enctype="multipart/form-data">
+		<label id="jsstatus" style="color:red;">-</label>
+	
+
+
+<script type="text/javascript">
+  rwt = function(e){
+    e.href = $(e).data('wpurl');
+  }
+</script>
+			</form>
+<hr>
+
+
+</body>
+</html> 
+
+

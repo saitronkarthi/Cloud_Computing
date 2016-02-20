@@ -1,0 +1,7 @@
+
+1This is an encrpted fille assaignment using Python & BlueMix to demostrate encrypted object storage
+
+This is a text file to be tested for encryption, decryption and uploading to cloud server.
+
+2This is an encrpted fille assaignment using Python & BlueMix to demostrate encrypted object storage
+

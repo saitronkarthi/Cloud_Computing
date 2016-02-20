@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>CSE6331-Cloud Coomputing Assignment2</title>
+</head>
+<body>
+<form method="post">
+
+<h1>CSE6331-Cloud Computing Assignment2</h1>
+
+1.button> 
+</form>
+ 0x73,   // 's'
+  0x74,   // 't'
+  0x65,   // 'e'
+  0x72,   // 'r'
+
+  // Tx power level
+  0x02,   // length of this data
+  GAP_ADTYPE_POWER_LEVEL,
+  0       // 0dBm  
+};
+
+// GAP - Advertisement data (max size = 31 bytes, though this is
+// best kept short to conserve power while advertisting)
+static uint8 advertData[] =
+{
+  // Flags; this sets the device to use limited discoverable
+  // mode (advertises for 30 seconds at a time) instead of general
+  // discoverable mode (advertises indefinitely)
+  0x02,   // length of this data
+  GAP_ADTYPE_FLAGS,
+
+</body>
+</html> 

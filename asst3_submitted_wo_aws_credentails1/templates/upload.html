@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>CSE6331-Cloud Computing Assignment-AWS S3 & EC2</h3>
+<h4 align="right"> {{ name }}Logged in.</h4>
+<h2>Welcome {{ name }}!</h2>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    1.Choose an image file to upload:<input type="file" class="upload"  name="file"/>
+    (Allowed extensions:.jpeg,.png)
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Upload the file" id="upload" >
+    <label for="extstatus" style="margin-left:100px;color:red;">{{extstatus}}</label>
+    <a href="/view">Click to view & Download Images</a>
+</form>
+</body>
+</html>

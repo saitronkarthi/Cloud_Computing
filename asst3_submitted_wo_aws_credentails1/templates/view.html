@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Title</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function del(filename) {
+            var var1 = $.ajax({
+                type: "POST",
+                url: "/delete",
+                async: false,
+                data: {mydata: filename}
+
+            });
+            location.reload(true)
+        }
+           function download(file){
+            window.location.href=file;
+        }
+        function view(fname) {
+            var x="{{ 'fname' }}";
+            window.location.href= "/imgview/"+fname;
+            }
+    </script>
+</head>
+<body>
+<h3>CSE6331-Cloud Computing Assignment-AWS S3 & EC2</h3>
+<label id="status" style="margin-left:100px;color:red;"></label>
+<h3>Images from AWS s3</h3><a href="/upload" style="margin-left:200px">Back to upload page</a>
+
+<table>
+<tr>
+<td>
+
+
+<table style="border:1px solid">
+{%set count=-1 %}
+{% for file in filelist %}
+{% set count=count + 1 %}
+    {%set fname= (filename[count])%}
+
+
+<tr>
+    <td>
+{%  set abc= file %}
+ <a href="#" onclick=view("{{ fname }}")> <img src="{{ file }}" height="100" width="100" alt="My Pic" title="Click to view full Image"/></a>
+        </td>
+<td>{{ fname }}</td>
+ <td><input type="button" value="Delete" onclick=del('{{ fname }}')></td>
+<td><input type="button" value="Download" onclick=download('{{ file }}')></td>
+
+
+    </tr>
+    {% endfor %}
+
+</table>
+</td>
+<td style="vertical-align:top" >
+<img id='imgview' src="{{ imgview }}" title="selected image"/>
+</td>
+</tr>
+</table>
+</body>
+</html>

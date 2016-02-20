@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>CSE6331-Cloud Coomputing Assignment2</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>  
+
+</head>
+<body>
+<script type="text/javascript">
+
+function test()
+{
+
+var var1=$.ajax({
+type: "POST",
+url: "/123",
+async:false,
+data: { param: 1}
+}); 
+$("#jsstatus").text(var1.responseText);
+
+}
+
+</script>
+<form method="post" enctype="multipart/form-data">
+
+<h2>CSE6331-Cloud Computing Assignment2</h2>
+1.Choose a file to upload:<input type="file" class="upload"  name="file"/>
+<input type="submit" value="Upload the file" id="test" >
+<br>
+<br>
+ <label for="status" style="margin-left:100px;color:red;">{{status}}</label>
+ <hr>
+ <table border="1">
+ <th>File list</th>
+{% for file in filelist %}
+<tr><td>{{ file }}</td><td><input type="button" value="Download" name="/{{ file }}"></td>
+<td><input type="button" value="Delete" name="/{{ file }}"></td>  </tr> </b>
+    {% endfor %}
+</table>
+   
+   
+</form>
+
+<form role="form" method = "post" action="/test" enctype="multipart/form-data">
+	<input type="hidden" name="dfilename" value="file1.txt">
+	<input type='button' value="Test javascript" onclick="test()">
+	<label id="jsstatus" style="color:red;">vv</label>
+	</form>
+<hr>
+
+
+</body>
+</html> 
+
+

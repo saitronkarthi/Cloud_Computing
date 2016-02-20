@@ -1,0 +1,4 @@
+Harsha, 50
+Mikhail, 20
+PoorStudent, 2
+RichProf, 5
